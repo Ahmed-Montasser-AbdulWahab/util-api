@@ -1,2 +1,2 @@
 # util-api
-Demo project to apply on GoLang Backend, Docker and Kubernetes
+Demo project to apply on GoLang Backend, Docker and Kubernetes.
