@@ -1,0 +1,36 @@
+services:
+  azan_api:
+    container_name: azan_api
+    build:
+      context: D:\util-api\azan-api
+      dockerfile: dockerfile
+    ports:
+      - 6000:6000
+    networks:
+      - util_api
+    env_file:
+      - .env
+  currency_api:
+    container_name: currency_api
+    build:
+      context: D:\util-api\currency-api
+      dockerfile: dockerfile
+    ports:
+      - 5000:5000
+    networks:
+      - util_api
+    env_file:
+      - .env
+  util_api:
+    container_name: util_api
+    build:
+      context: D:\util-api\util-api
+      dockerfile: dockerfile
+    ports:
+      - 7000:7000
+    networks:
+      - util_api
+    env_file:
+      - .env
+networks:
+  util_api:
