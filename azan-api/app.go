@@ -3,13 +3,11 @@ package main
 import (
 	"encoding/json"
 	"io"
-	"log"
 	"net/http"
 	"os"
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 )
 
 var API string = "https://api.aladhan.com/v1/timingsByCity/" + time.Now().Format(time.DateOnly) + "?city=Cairo&country=EGY&method=5"
@@ -18,10 +16,10 @@ type responseStructure map[string]any
 
 func main() {
 	// Load environment variables from .env file
-	err := godotenv.Load("../.env")
-	if err != nil {
-		log.Println("No .env file found or error loading .env file")
-	}
+	// err := godotenv.Load(".env")
+	// if err != nil {
+	// 	log.Println("No .env file found or error loading .env file")
+	// }
 
 	HOST := os.Getenv("AZAN_API_HOST")
 	PORT := os.Getenv("AZAN_API_PORT")

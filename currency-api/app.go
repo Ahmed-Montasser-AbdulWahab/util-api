@@ -4,12 +4,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 )
 
 const API string = "https://api.exchangerate-api.com/v4/latest/USD"
@@ -18,10 +16,10 @@ type responseStructure map[string]any
 
 func main() {
 	// Load environment variables from .env file
-	err := godotenv.Load("../.env")
-	if err != nil {
-		log.Println("No .env file found or error loading .env file")
-	}
+	// err := godotenv.Load(".env")
+	// if err != nil {
+	// 	log.Println("No .env file found or error loading .env file")
+	// }
 
 	HOST := os.Getenv("CURRENCY_API_HOST")
 	PORT := os.Getenv("CURRENCY_API_PORT")

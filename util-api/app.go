@@ -3,36 +3,33 @@ package main
 import (
 	"encoding/json"
 	"io"
-	"log"
 	"net/http"
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 )
 
 type responseStructure map[string]string
 
 func main() {
 	// Load environment variables from .env file
-	err := godotenv.Load("../.env")
-	if err != nil {
-		log.Println("No .env file found or error loading .env file")
-	}
+	// err := godotenv.Load(".env")
+	// if err != nil {
+	// 	log.Println("No .env file found or error loading .env file")
+	// }
 
-	//CURRENCY_API_HOST := os.Getenv("CURRENCY_API_HOST")
+	CALL_CURRENCY_API_HOST := os.Getenv("CALL_CURRENCY_API_HOST")
 	CURRENCY_API_PORT := os.Getenv("CURRENCY_API_PORT")
 
-	AZAN_API_HOST := os.Getenv("AZAN_API_SERVICE_HOST")
-	AZAN_API_PORT := os.Getenv("AZAN_API_SERVICE_PORT")
+	CALL_AZAN_API_HOST := os.Getenv("CALL_AZAN_API_HOST")
+	AZAN_API_PORT := os.Getenv("AZAN_API_PORT")
 
 	UTIL_API_HOST := os.Getenv("UTIL_API_HOST")
 	UTIL_API_PORT := os.Getenv("UTIL_API_PORT")
 
-	var AZAN_API string = "http://" + AZAN_API_HOST + AZAN_API_PORT + "/service/get-today/azan-times"
-	var CURRENCY_API string = "http://localhost:" + CURRENCY_API_PORT + "/service/get-today/exchange-rate"
-	AZAN_API = "http://" + "localhost:6000" + "/service/get-today/azan-times"
-	CURRENCY_API = "http://localhost:" + "5000" + "/service/get-today/exchange-rate"
+	var AZAN_API string = "http://" + CALL_AZAN_API_HOST + ":" + AZAN_API_PORT + "/service/get-today/azan-times"
+	var CURRENCY_API string = "http://" + CALL_CURRENCY_API_HOST + ":" + CURRENCY_API_PORT + "/service/get-today/exchange-rate"
+
 	server := gin.Default()
 
 	server.GET(
