@@ -6,8 +6,8 @@ COPY go.mod .
 
 RUN go mod download
 
-COPY app.go .
-
 COPY go.sum .
+
+COPY app.go .
 
 CMD ["go" , "run", "."]
