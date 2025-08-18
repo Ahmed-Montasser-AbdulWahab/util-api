@@ -18,17 +18,27 @@ func main() {
 	// 	log.Println("No .env file found or error loading .env file")
 	// }
 
-	CALL_CURRENCY_API_HOST := os.Getenv("CALL_CURRENCY_API_HOST")
-	CURRENCY_API_PORT := os.Getenv("CURRENCY_API_PORT")
+	// CALL_CURRENCY_API_HOST := os.Getenv("CURRENCY_API_SERVICE_HOST")
+	// CURRENCY_API_PORT := os.Getenv("CURRENCY_API_SERVICE_PORT")
 
-	CALL_AZAN_API_HOST := os.Getenv("CALL_AZAN_API_HOST")
-	AZAN_API_PORT := os.Getenv("AZAN_API_PORT")
+	// CALL_AZAN_API_HOST := "azan-api-service"
+	// AZAN_API_PORT := os.Getenv("AZAN_API_SERVICE_PORT")
 
 	UTIL_API_HOST := os.Getenv("UTIL_API_HOST")
 	UTIL_API_PORT := os.Getenv("UTIL_API_PORT")
 
-	var AZAN_API string = "http://" + CALL_AZAN_API_HOST + ":" + AZAN_API_PORT + "/service/get-today/azan-times"
-	var CURRENCY_API string = "http://" + CALL_CURRENCY_API_HOST + ":" + CURRENCY_API_PORT + "/service/get-today/exchange-rate"
+	if UTIL_API_HOST == "" {
+		UTIL_API_HOST = "0.0.0.0"
+	}
+
+	if UTIL_API_PORT == "" {
+		UTIL_API_PORT = "7000"
+	}
+
+	// var AZAN_API string = "http://" + CALL_AZAN_API_HOST + ":" + AZAN_API_PORT + "/service/get-today/azan-times"
+	// var CURRENCY_API string = "http://" + CALL_CURRENCY_API_HOST + ":" + CURRENCY_API_PORT + "/service/get-today/exchange-rate"
+	var AZAN_API string = "http://azan-api-service:6000/service/get-today/azan-times"
+	var CURRENCY_API string = "http://currency-api-service:5000/service/get-today/exchange-rate"
 
 	server := gin.Default()
 

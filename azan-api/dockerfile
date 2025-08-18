@@ -10,4 +10,8 @@ COPY go.sum .
 
 COPY app.go .
 
+RUN mkdir /.cache 
+
+RUN chmod -R 777 /.cache
+
 CMD ["go" , "run", "."]

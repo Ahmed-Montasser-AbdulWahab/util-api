@@ -24,6 +24,13 @@ func main() {
 	HOST := os.Getenv("CURRENCY_API_HOST")
 	PORT := os.Getenv("CURRENCY_API_PORT")
 
+	if HOST == "" {
+		HOST = "0.0.0.0"
+	}
+
+	if PORT == "" {
+		PORT = "5000"
+	}
 	server := gin.Default()
 
 	server.GET(

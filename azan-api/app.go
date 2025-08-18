@@ -24,6 +24,14 @@ func main() {
 	HOST := os.Getenv("AZAN_API_HOST")
 	PORT := os.Getenv("AZAN_API_PORT")
 
+	if HOST == "" {
+		HOST = "0.0.0.0"
+	}
+
+	if PORT == "" {
+		PORT = "6000"
+	}
+
 	server := gin.Default()
 
 	server.GET(

@@ -14,4 +14,8 @@ ENV UTIL_API_PORT=7000
 
 EXPOSE $UTIL_API_PORT
 
+RUN mkdir /.cache 
+
+RUN chmod -R 777 /.cache
+
 CMD ["go" , "run", "."]
