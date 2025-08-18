@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: util-api-ingress
+spec:
+  rules:
+    - host: util-app.go.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: util-api-service
+                port:
+                  number: 7000
