@@ -4,7 +4,7 @@ metadata:
   name: util-api-ingress
 spec:
   rules:
-    - host: util-app.go.com
+    - host: util-a-sharkawy-dev.apps.rm2.thpm.p1.openshiftapps.com
       http:
         paths:
           - path: /
