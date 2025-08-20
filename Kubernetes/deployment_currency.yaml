@@ -43,3 +43,10 @@ spec:
         name: currency-api
         ports:
           - containerPort: 5000
+        resources:
+          limits:
+            cpu: 333m
+            memory: 1Gi
+          requests:
+            cpu: 333m
+            memory: 1Gi

@@ -43,3 +43,10 @@ spec:
         name: azan-api
         ports:
           - containerPort: 6000
+        resources:
+          limits:
+            cpu: 333m
+            memory: 1Gi
+          requests:
+            cpu: 333m
+            memory: 1Gi

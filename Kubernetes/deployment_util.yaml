@@ -43,3 +43,10 @@ spec:
         name: util-api
         ports:
           - containerPort: 7000
+        resources:
+          limits:
+            cpu: 333m
+            memory: 1Gi
+          requests:
+            cpu: 333m
+            memory: 1Gi
